@@ -1,15 +1,18 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
-import { Switch, Route } from 'react-router-dom';
+import { AuthRoutes  } from './auth.routes';
+import { AppRoutes  } from './app.routes';
 
-import Dashboard from '../pages/Dashboard';
-import Import from '../pages/Import';
+import { useAuth } from '../hooks/auth';
 
-const Routes: React.FC = () => (
-  <Switch>
-    <Route path="/" exact component={Dashboard} />
-    <Route path="/import" component={Import} />
-  </Switch>
-);
 
-export default Routes;
+export function Routes(){
+  const { user } = useAuth();
+  
+  return(
+    <NavigationContainer>
+      {user.id ? <AppRoutes/> : <AuthRoutes />}
+    </NavigationContainer>
+  );
+}
