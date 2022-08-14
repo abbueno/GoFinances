@@ -5,8 +5,9 @@
     "name": "gofinances",
     "slug": "gofinances",
     "scheme": "gofinances",
-    "icon": "./assets/logo.png",
+    "icon": "./src/assets/logo.png",
     "version": "1.0.0",
+    "runtimeVersion": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
     ],
